@@ -1,9 +1,9 @@
 <section>
   <a name="{{{anchorName}}}"></a>
   {{#if (equal access 'protected')}}
-    <h3 class="text-info">{{name}}</h3>
+    <h3 class="text-info" id={{name}}>{{name}}</h3>
   {{else}}
-    <h3>{{name}}</h3>
+    <h3 id={{name}}>{{name}}</h3>
   {{/if}}
   <table class="table table-sm table-bordered">
     <tbody>

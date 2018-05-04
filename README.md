@@ -1,40 +1,53 @@
-[![view on npm](http://img.shields.io/npm/v/dmd-plugin-example.svg)](https://www.npmjs.org/package/dmd-plugin-example)
-[![npm module downloads per month](http://img.shields.io/npm/dm/dmd-plugin-example.svg)](https://www.npmjs.org/package/dmd-plugin-example)
-[![Dependency Status](https://david-dm.org/jsdoc2md/dmd-plugin-example.svg)](https://david-dm.org/jsdoc2md/dmd-plugin-example)
+# dmd-compodoc-api-plugin
 
-# dmd-plugin-example
+This has been created to be used with backed api calls and compodoc. Special manipulation of JSdoc tags for api-specific info
+Formatting to match compodoc
 
-This is a simple example demonstrating how to construct a dmd plugin. It adds a generated date to the bottom of your API docs.
+Cloned and adapted from [dmd-example-plugin](https://github.com/jsdoc2md/dmd-plugin-example)
 
-To make your own plug-in, clone this project, edit and publish to npm. 
-
-To use a plug-in in your project, first install it as a devDependency: 
+## Install
+With NPM:
 ```
-$ npm install dmd-plugin-example --save-dev
+$ npm install https://github.com/bhofmei/dmd-compodoc-api-plugin --save-dev
 ```
+
+With yarn:
+```
+$ yarn add https://github.com/bhofmei/dmd-compodoc-api-plugin --dev
+```
+
+## Use with JSdoc
 
 Then pass the plug-in name to `jsdoc2md` or `dmd`:
 ```
 $ jsdoc2md --plugin dmd-plugin-example lib/*.js 
 ```
 
-Notes: params partial is mainly from params-table-html
-Params are actually the request parameters
+## JSDoc Adaptions
 
-This has been created to be used with backed api calls and compodoc. Special manipulation of JSdoc tags for api-specific info
-Formatting to match compodoc
+* In general, should be used for Express.js functions of the form `funcName(req, res [,next, param...])`. Thus, each function has parameters `req`, `res`, and optionally `next` and additional ID parameters.
 
-In general, should be used for Express.js functions of the form `funcName(req, res [,next, param...])`
+* Request parameters
+  * But each request will have it's own parameters which should be documented.
+  * Those are each documented using the `@property` tag with syntax like a normal parameter
 
-Thus, each function has parameters `req`, `res`, and optionally `next` and additional ID parameters.
+* Sometimes these functions return and error but usually they pass info to the next middleware or response object.
 
-But each request will have it's own parameters which should be documented. Those are each documented using the `@property` tag.
+* HTTP Response
+  * When providing info to the response object, document with `@yields [{type}] description`.
+  * Rather than type, we want to specificy the HTTP response code.
+  * To include message info in the status code, replace spaces with `_`-they will be cleaned up for output.
+  * For example, status `200 OK` would have a JSdoc like `@yields {200_OK} function description`.
+  
+* For endpoint functions
+  * Specify the HTTP type with `@apiType`. Should be one of `GET`, `POST`, `DELETE`, `PUT`, `PATCH`, `HEAD`, or `OPTIONS`.
+  * Specify the URL path with `@apiPath`. This is the express route
+* For middleware and/or parameter identification functions: set `@access protected`
 
-Sometimes these functions return and error but usually they pass info to the next middleware or response object.
+* Examples
+  * Finally examples can be split into response and request. 
+  * The normal `example` tag has an optional `<caption>...</cpation>`. Specify `Response` or `Request` here to indicate the example type. Multiple types are allowed.
+  * Additional comments about the example can be included with the example as a second line in `<p>comment</p>`.
+  * If a caption is specified, comment needs to be on it's own line. If no caption speicified, it should be on the sample line as the `@example` tag.
 
-When providing info to the response object, document with `@yields [{type}] description`. Rather than type, we want to specificy the HTTP response code.
-To include message info in the status code, replace spaces with `_`-they will be cleaned up for output. For example, status `200 OK` would have a JSdoc like `@yields {200_OK} function description`.
-
-Finally examples can be split into response and request. The normal `example` tag has an optional `<caption>...</cpation>`. Specify `Response` or `Request` here to indicate the example type. Multiple types are allowed.
-Additional comments can be included with the example as a second line in `<p>comment</p>`.
-If a caption is specified, this needs to be on it's own line. If no caption speicified, it should be on the sample line as the `@example` tag.
+* All normal JSDoc tags will work for documenting functions/modules which aren't express functions

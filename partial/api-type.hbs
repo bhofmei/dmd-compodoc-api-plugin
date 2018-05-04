@@ -1,0 +1,11 @@
+{{#each customTags}}
+  {{#if (equal tag 'apitype')}}
+    {{#apiMethodIcon}}{{value}}{{/apiMethodIcon}}
+  {{/if}}
+{{/each}}
+
+{{#each customTags}}
+  {{#if (equal tag 'apipath')}}
+    <code>{{value}}</code>
+  {{/if}}
+{{/each}}

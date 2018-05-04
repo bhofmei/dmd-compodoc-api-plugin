@@ -1,0 +1,18 @@
+{{#if yields}}
+<table class="params">
+  <thead>
+    <tr>
+      {{#each (tableHeadHtml yields "type|Status" "description|Description")}}<td>{{this}}</td>{{/each}}
+    </tr>
+  </thead>
+  <tbody>
+    {{#tableRow yields "type" "description" ~}}
+    <tr>
+    {{#if @col1}}<td>{{#removeUnderscore}}{{>linked-type-list types=type.names html=true}}{{/removeUnderscore}}</td>{{/if~}}
+    {{#if @col2}}<td>{{{md (inlineLinks description)}}}</td>{{/if}}
+    </tr>
+    {{~/tableRow}}
+  </tbody>
+</table>
+
+{{/if}}

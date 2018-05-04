@@ -1,0 +1,7 @@
+{{#if (equal kind 'module')}}
+  {{>header-module~}}
+  {{>module-index~}}
+{{else}}
+  {{>block-method~}}
+{{/if}}
+{{>members~}}

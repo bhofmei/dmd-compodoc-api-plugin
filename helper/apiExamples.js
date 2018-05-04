@@ -22,7 +22,7 @@ exports.apiExamples = function(options) {
         example = lines.join('\n')
       }
 
-      example = util.format('<pre><code>%s</code></pre>', example ? example + '\n' : '');
+      example = util.format('<pre class="language-html"><code class="language-html">%s</code></pre>', example ? example + '\n' : '');
 
       return prev + options.fn({caption: caption, example: example, paragraph: paragraph})
     }, '')

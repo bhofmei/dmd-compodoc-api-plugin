@@ -2,10 +2,17 @@
 {{#if returns.[0].description~}}
 <b>Returns : </b> {{#each returns~}}
   {{#if type~}}
+  <div class="io-description">
     {{#if type.names}}{{>linked-type-list types=type.names delimiter=" \| " ~}}{{/if}}
-    {{~#if description}} - {{{inlineLinks description}}}{{/if~}}
+    </div>
+    {{~#if description}}
+    <div class="io-description">
+    {{{md (inlineLinks description)}}}
+      </div>{{/if~}}
   {{else~}}
-    {{{inlineLinks description}~}}
+  <div class="io-description">
+    {{{md (inlineLinks description)}}}
+    </div>
   {{/if~}}
 {{~/each}}
   

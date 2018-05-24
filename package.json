@@ -1,7 +1,7 @@
 {
   "name": "dmd-compodoc-api-plugin",
   "author": "Brigitte Hofmeister <bhofmei@gmail.com>",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "DMD plugin for Express app documentation and Compodoc formatting",
   "repository": "https://github.com/bhofmei/dmd-compodoc-api-plugin.git",
   "main": "./lib/index.js",

@@ -1,0 +1,65 @@
+<table class="table table-sm table-bordered">
+<tbody>
+<tr id="{{name}}"><td class="col-md-4">
+<a name="{{{anchorName}}}"></a>
+{{#if customTags}}
+{{#each customTags}}
+{{#modifySpan}}{{tag}}{{/modifySpan}}
+{{/each}}
+{{/if}}
+<b>{{name}}</b>
+</td></tr>
+<tr>
+<td class="col-md-4"><code>{{>sig-name-short}}</code></td>
+</tr>
+
+{{#if description}}
+<tr>
+<td class="col-md-4">
+<i></i>
+<div class="io-description">{{{md (inlineLinks description)}}}</div>
+</td>
+</tr>
+{{/if}}
+{{#unless (equal defaultvalue undefined)}}
+<tr>
+<td class="col-md-4">
+<i>Default Value :</i> {{>defaultvalue}}
+</td>
+</tr>
+
+{{/unless}}
+{{#if params }}
+<tr>
+<td class="col-md-4">
+<div class="io-description">
+<b>Parameters :</b> {{>params~}}
+</div>
+</td>
+</tr>
+{{/if}}
+{{#if properties }}
+<tr>
+<td class="col-md-4">
+<div class="io-description">
+{{>properties~}}
+</div>
+</td>
+</tr>
+{{/if}}
+{{#if returns}}
+<tr>
+<td class="col-md-4">
+<div class="io-description">{{>returns~}}</div>
+</td>
+</tr>
+{{/if}}
+{{#if examples}}
+<tr>
+<td class="col-md-4">
+{{>examples}}
+</td>
+</tr>
+{{/if}}
+</tbody>
+</table>

@@ -1,16 +1,16 @@
 <ol class="breadcrumb">
-  {{#if type}}
-    <li>{{type.names.[0]}}</li>
-  {{else}}
-    <li>Module</li>
-  {{/if}}
-  <li>{{name}}</li>
+{{#if type}}
+<li>{{type.names.[0]}}</li>
+{{else}}
+<li>Module</li>
+{{/if}}
+<li>{{name}}</li>
 </ol>
 {{#if description}}
-  <p class="comment">
-    <h3>Description</h3>
-  </p>
-  <p class="comment">
-    {{{description}}}
-  </p>
+<p class="comment">
+<h3>Description</h3>
+</p>
+<p class="comment">
+{{{description}}}
+</p>
 {{/if}}

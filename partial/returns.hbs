@@ -1,13 +1,13 @@
 {{#if returns}}
 {{#if returns.[0].description~}}
 <b>Returns : </b> {{#each returns~}}
-  {{#if type~}}
-    {{#if type.names}}{{>linked-type-list types=type.names delimiter=" \| " ~}}{{/if}}
-    {{~#if description}}
-    <div class="io-description">
-    {{{md (inlineLinks description)}}}</div>{{/if~}}
-  {{else~}}
-  <div class="io-description">
-    {{{md (inlineLinks description)}}}</div>{{/if~}}
+{{#if type~}}
+{{#if type.names}}{{>linked-type-list types=type.names delimiter=" \| " ~}}{{/if}}
+{{~#if description}}
+<div class="io-description">
+{{{md (inlineLinks description)}}}</div>{{/if~}}
+{{else~}}
+<div class="io-description">
+{{{md (inlineLinks description)}}}</div>{{/if~}}
 {{~/each}}
 {{/if}}{{/if}}

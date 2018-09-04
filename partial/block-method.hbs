@@ -1,62 +1,58 @@
 <section>
-  <a name="{{{anchorName}}}"></a>
-  {{#if (equal access 'protected')}}
-    <h3 class="text-info" id={{name}}>{{name}}</h3>
-  {{else}}
-    <h3 id={{name}}>{{name}}</h3>
-  {{/if}}
-  <table class="table table-sm table-bordered">
-    <tbody>
-      <tr>
-        <td class="col-md-4"><code>{{>sig-name-short}}</code></td>
-      </tr>
-      {{#if customTags}}
-        <tr>
-          <td class="col-md-4">{{>api-type~}}</td>
-        </tr>
-      {{/if}}
-      {{#if description}}
-        <tr>
-          <td class="col-md-4">
-            <div class="io-description">{{{ description }}}</div>
-          </td>
-        </tr>
-      {{/if}}
-      {{#if (or params properties)}}
-        <tr>
-          <td class="col-md-4">
-            {{#if params}}
-              <div class="io-description">
-                <b>Parameters :</b> {{>params~}}
-              </div>
-            {{/if}} 
-            {{#if properties}}
-              <div class="io-description">
-                <b>Request Parameters :</b> {{>properties~}}
-              </div>
-            {{/if}}
-          </td>
-        </tr>
-      {{/if}} 
-      {{#if (or returns yields)}}
-        <tr>
-          <td class="col-md-4">
-            {{#if returns}}
-              <div class="io-description">{{>returns~}}</div>
-            {{/if}} 
-            {{#if yields}}
-              <div class="io-description"><b>Response :</b>{{>yields~}}</div>
-            {{/if}}
-          </td>
-        </tr>
-      {{/if}}
-      {{#if examples}}
-        <tr>
-          <td class="col-md-4">
-            {{>examples}}
-          </td>
-        </tr>
-      {{/if}}
-    </tbody>
-  </table>
+<a name="{{{anchorName}}}"></a>
+{{#if (equal access 'protected')~}}
+<h3 class="text-info" id={{name}}>{{name}}</h3>
+{{else~}}
+<h3 id={{name}}>{{name}}</h3>
+{{/if~}}
+<table class="table table-sm table-bordered">
+<tbody>
+<tr>
+<td class="col-md-4"><code>{{>sig-name-short~}}</code></td>
+</tr>
+{{#if customTags~}}
+{{>api-type~}}
+{{/if~}}
+{{#if description~}}
+<tr>
+<td class="col-md-4"><div class="io-description">{{{ description }}}</div></td>
+</tr>
+{{/if~}}
+{{#if (or params properties)~}}
+<tr>
+<td class="col-md-4">
+{{#if params~}}
+<div class="io-description">
+<b>Parameters :</b> {{>params~}}
+</div>
+{{/if~}}
+{{#if properties~}}
+<div class="io-description">
+<b>Request Parameters :</b> {{>properties~}}
+</div>
+{{/if~}}
+</td>
+</tr>
+{{/if~}}
+{{#if (or returns yields)~}}
+<tr>
+<td class="col-md-4">
+{{#if returns~}}
+<div class="io-description">{{>returns~}}</div>
+{{/if~}}
+{{#if yields~}}
+<div class="io-description"><b>Response :</b>{{>yields~}}</div>
+{{/if~}}
+</td>
+</tr>
+{{/if~}}
+{{#if examples~}}
+<tr>
+<td class="col-md-4">
+{{>examples~}}
+</td>
+</tr>
+{{/if~}}
+</tbody>
+</table>
 </section>

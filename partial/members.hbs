@@ -1,0 +1,21 @@
+{{#if (optionEquals "module-index-format" "grouped")}}
+{{#children inherited=undefined kind="function" ~}}
+{{#if @first ~}}<section><h3>Methods</h3>{{/if~}}
+{{>docs~}}
+{{#if @last }}</section>{{/if}}
+{{/children~}}
+{{#children inherited=undefined kind="member" ~}}
+{{#if @first ~}}<section><h3>Properties</h3>{{/if~}}
+{{>docs~}}
+{{#if @last }}</section>{{/if}}
+{{/children~}}
+{{#children inherited=undefined kind="enum" ~}}
+{{#if @first ~}}<section><h3>Enumerables</h3>{{/if~}}
+{{>docs~}}
+{{#if @last }}</section>{{/if}}
+{{/children~}}
+{{else}}
+{{#children inherited=undefined ~}}
+{{>docs~}}
+{{/children~}}
+{{/if}}

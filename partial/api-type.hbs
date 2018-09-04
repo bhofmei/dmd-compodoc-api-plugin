@@ -1,11 +1,15 @@
-{{#each customTags}}
-  {{#if (equal tag 'apitype')}}
-    {{#apiMethodIcon}}{{value}}{{/apiMethodIcon}}
-  {{/if}}
-{{/each}}
+<tr>
+<td class="col-md-4">
+{{#each customTags ~}}
+{{#if (equal tag 'apitype')~}}
+{{#apiMethodIcon}}{{value}}{{/apiMethodIcon}}
+{{/if~}}
+{{/each ~}}
 
-{{#each customTags}}
-  {{#if (equal tag 'apipath')}}
-    <code>{{value}}</code>
-  {{/if}}
-{{/each}}
+{{#each customTags ~}}
+{{#if (equal tag 'apipath')~}}
+<code>{{value}}</code>
+{{/if~}}
+{{/each~}}
+</td>
+</tr>

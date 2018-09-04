@@ -1,0 +1,20 @@
+{{#indexChildren kind=kind~}}
+{{#if @first~}}
+<tr>
+<td class="col-md-4"><h6><b>{{../title}}</b></h6></td>
+</tr>
+<tr>
+<td class="col-md-4">
+<ul class="index-list">
+{{/if~}}
+<li>
+{{#each modifierKind}}
+<span class="modifier">{{modifKind this}}</span> {{/each}}
+<a href="#{{anchorName}}">{{name}}</a>
+</li>
+{{#if @last~}}
+</ul>
+</td>
+</tr>
+{{/if~}}
+{{/indexChildren}}

@@ -1,21 +1,4 @@
-<section>
-  <h3 id="index">Index</h3>
-  <table class="table table-sm table-bordered index-table">
-    <tbody>
-      <tr>
-        <td class="col-md-4">
-          <ul class="index-list">
-            {{#indexChildren ~}}
-              <li>
-                {{#each modifierKind}}
-                <span class="modifier">{{modifKind this}}</span>
-                  {{/each}}
-                <a href="#{{anchorName}}">{{name}}</a>
-              </li>
-            {{/indexChildren}}
-          </ul>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</section>
+{{#unless (optionEquals "module-index-format" "none")~}}
+{{#if (optionEquals "module-index-format" "grouped")}}{{>module-index-grouped ~}}
+{{else}}{{>module-index-list ~}}{{/if~}}
+{{/unless~}}

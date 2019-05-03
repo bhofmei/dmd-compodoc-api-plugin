@@ -1,6 +1,8 @@
 <ol class="breadcrumb">
-{{#if type}}
-<li>{{type.names.[0]}}</li>
+{{#if type~}}
+{{#each type.names}}
+<li>{{this}}</li>
+{{/each}}
 {{else}}
 <li>Module</li>
 {{/if}}
